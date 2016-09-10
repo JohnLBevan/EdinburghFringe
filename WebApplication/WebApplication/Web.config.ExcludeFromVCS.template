@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+
+  <!-- auth providers -->
+  <!-- 
+      Google 
+      - http://www.asp.net/mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
+      - https://console.developers.google.com/apis/library?project=fringesite-142519
+      - Client ID: 92822080883-vbea4o6gf1g26rc8egon1rt7bv2afdhr.apps.googleusercontent.com
+      - Secret: n1C8lrdyM-Jo03-dlgmi96k4
+  -->
+  <add key="GoogleClientID" value="see https://console.developers.google.com/apis/library" />
+  <add key="GoogleClientSecret" value="see https://console.developers.google.com/apis/library" />
+
+</appSettings>

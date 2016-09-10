@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBF6354F-C1E9-4594-A9B6-A0C35CF41A3A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JohnLBevan.EventApp.DTO</RootNamespace>
+    <AssemblyName>JohnLBevan.EventApp.DTO</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\JohnLBevan.Common.Type\JohnLBevan.Common.Type.csproj">
+      <Project>{02fb3d33-3188-47ab-9a36-7cac1644f3da}</Project>
+      <Name>JohnLBevan.Common.Type</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JohnLBevan.EventApp.BaseInterfaces\JohnLBevan.EventApp.BaseInterfaces.csproj">
+      <Project>{661d8323-0141-4f37-aafa-a4f694e76c68}</Project>
+      <Name>JohnLBevan.EventApp.BaseInterfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CityDTO.cs" />
+    <Compile Include="CountryDTO.cs" />
+    <Compile Include="CountyStateRegionDTO.cs" />
+    <Compile Include="DTOBase.cs" />
+    <Compile Include="LocationDTO.cs" />
+    <Compile Include="PerformanceDTO.cs" />
+    <Compile Include="PerformanceEventDTO.cs" />
+    <Compile Include="PerformanceEventSupplementaryInfoDTO.cs" />
+    <Compile Include="PerformanceSupplementaryInfoDTO.cs" />
+    <Compile Include="PerformerDTO.cs" />
+    <Compile Include="PerformerMemberDTO.cs" />
+    <Compile Include="PerformerPerformerTypeDTO.cs" />
+    <Compile Include="PerformerSupplementaryInfoDTO.cs" />
+    <Compile Include="PerformerTypeDTO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SupplementaryInfoDTO.cs" />
+    <Compile Include="SupplementaryInfoTypeDTO.cs" />
+    <Compile Include="VenueDTO.cs" />
+    <Compile Include="VenueSupplementaryInfoDTO.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
