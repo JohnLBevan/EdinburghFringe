@@ -62,6 +62,7 @@
     <Folder Include="Scripts" />
     <Folder Include="Scripts\RoughBits" />
     <Folder Include="Scripts\CodeGeneration" />
+    <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\AspNetUsers.sql" />
@@ -89,6 +90,23 @@
     <Build Include="dbo\Tables\City.sql" />
     <Build Include="Scripts\RoughBits\EdFringeDb.sql" />
     <None Include="Scripts\CodeGeneration\GenerateInterfaceAndDTOFromDatabase.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSingleVenueSupplementaryInfoById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSingleVenueById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSingleSupplementaryInfoTypeById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSingleSupplementaryInfoById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSinglePerformerTypeById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSinglePerformerSupplementaryInfoById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSinglePerformerPerformerTypeById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSinglePerformerMemberById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSinglePerformerById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSinglePerformanceSupplementaryInfoById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSinglePerformanceEventSupplementaryInfoById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSinglePerformanceEventById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSinglePerformanceById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSingleLocationById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSingleCountyStateRegionById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSingleCountryById.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetSingleCityById.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LocalHostToProject.scmp" />

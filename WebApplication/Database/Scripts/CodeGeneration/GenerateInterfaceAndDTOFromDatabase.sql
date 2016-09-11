@@ -61,11 +61,14 @@ declare
 , @cSharpCodeDTOConstructor nvarchar(max) = ''
 , @cSharpCodeDTOConstructorParameter nvarchar(max) = ''
 , @cSharpCodeDTOConstructorParameterAssignments nvarchar(max) = ''
+, @sqlCodeGetSingleById nvarchar(max) = ''
 , @object_id bigint
 , @t_name sysname
 , @c_name sysname
 , @c_nameLCase sysname
 , @c_cSharpType nvarchar(128)
+, @c_sqlType nvarchar(128)
+, @fieldSpacer nvarchar(2) = ''
 
 declare table_cursor cursor fast_forward for
 select t.object_id, t.name
@@ -84,9 +87,15 @@ begin
 	, @cSharpCodeDTOConstructor = char(10) + char(9) + 'public ' + @t_name + 'DTO() ' + char(10) + char(9) + '{' + char(10) + char(9) + char(9) + 'IsNew = true;' + char(10)
 	, @cSharpCodeDTOConstructorParameter = char(10) + char(9) + 'public ' + @t_name + 'DTO('
 	, @cSharpCodeDTOConstructorParameterAssignments = 'bool isNew = false) ' + char(10) + char(9) + '{' + char(10) + char(9) + char(9) + 'IsNew = isNew;' + char(10)
+	, @sqlCodeGetSingleById = @sqlCodeGetSingleById + 'create procedure sp_GetSingle' + @t_name + 'ById (@Id as bigint) ' + char(10) 
+	+ 'as' + char(10) + 
+	'begin' + char(10) 
+	+ char(9) + 'set nocount on' + char(10) 
+	+ char(9) + 'select top 1 ' 
+	, @fieldSpacer = ''
 
 	declare column_cursor cursor fast_forward for
-	select c.name, tm.cSharpName
+	select c.name, tm.cSharpName, tm.sqlname
 	from sys.columns c
 	inner join @TypeMap tm
 	on tm.system_type_id = c.system_type_id
@@ -95,7 +104,7 @@ begin
 	order by c.name 
 
 	open column_cursor
-	fetch next from column_cursor into @c_name, @c_cSharpType
+	fetch next from column_cursor into @c_name, @c_cSharpType, @c_sqlType
 	while @@FETCH_STATUS = 0
 	begin
 
@@ -106,8 +115,10 @@ begin
 		, @cSharpCodeDTOConstructor = @cSharpCodeDTOConstructor + char(9) + char(9) + @c_name + ' = default(' + @c_cSharpType + ');' + char(10)
 		, @cSharpCodeDTOConstructorParameter = @cSharpCodeDTOConstructorParameter + @c_cSharpType + ' ' + @c_nameLCase + ', '
 		, @cSharpCodeDTOConstructorParameterAssignments = @cSharpCodeDTOConstructorParameterAssignments + char(9) + char(9) + @c_name + ' = ' + @c_nameLCase + ';' + char(10)
+		, @sqlCodeGetSingleById = @sqlCodeGetSingleById + @fieldSpacer + @c_name 
+		, @fieldSpacer = ', '
 
-		fetch next from column_cursor into @c_name, @c_cSharpType
+		fetch next from column_cursor into @c_name, @c_cSharpType, @c_sqlType
 	end
 	close column_cursor
 	deallocate column_cursor
@@ -117,15 +128,23 @@ begin
 		+ @cSharpCodeDTOConstructor + char(9) + '}' + char(10)
 		+ @cSharpCodeDTOConstructorParameter + @cSharpCodeDTOConstructorParameterAssignments + char(9) + '}' + char(10)
 		+ '}' + char(10) 
-	
+	, @sqlCodeGetSingleById = @sqlCodeGetSingleById + char(10) 
+		+ char(9) + 'from ' + @t_name + char(10) 
+		+ char(9) + 'where Id = @Id' + char(10) 
+		+ char(9) + 'option (fast 1)' + char(10) 
+		+ 'end' + char(10) 
+
+
 	fetch next from table_cursor into @object_id, @t_name
 end
 close table_cursor
 deallocate table_cursor
 
-print @cSharpCodeInterface
-print @cSharpCodeDTO
+--print @cSharpCodeInterface
+--print @cSharpCodeDTO
+print @sqlCodeGetSingleById
 
 select @cSharpCodeInterface
 select @cSharpCodeDTO
+select @sqlCodeGetSingleById
 

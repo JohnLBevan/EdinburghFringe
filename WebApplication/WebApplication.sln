@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JohnLBevan.Common.Type", "J
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JohnLBevan.EventApp.BaseInterfaces", "JohnLBevan.EventApp.BaseInterfaces\JohnLBevan.EventApp.BaseInterfaces.csproj", "{661D8323-0141-4F37-AAFA-A4F694E76C68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JohnLBevan.EventApp.DataAccess.Interface", "JohnLBevan.EventApp.DataAccess.Interface\JohnLBevan.EventApp.DataAccess.Interface.csproj", "{BDBF7F0C-2EE5-4F72-8330-9D609EE1C4F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{661D8323-0141-4F37-AAFA-A4F694E76C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{661D8323-0141-4F37-AAFA-A4F694E76C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{661D8323-0141-4F37-AAFA-A4F694E76C68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDBF7F0C-2EE5-4F72-8330-9D609EE1C4F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDBF7F0C-2EE5-4F72-8330-9D609EE1C4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDBF7F0C-2EE5-4F72-8330-9D609EE1C4F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDBF7F0C-2EE5-4F72-8330-9D609EE1C4F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
